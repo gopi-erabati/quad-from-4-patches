@@ -1,0 +1,31 @@
+name: pytest-conda
+
+on:
+  pull_request:
+    paths:
+      - test/**
+
+defaults:
+  run:
+    shell: bash -el {0}
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Copy repo
+        uses: actions/checkout@v4
+
+      - name: Install Conda environment with Micromamba
+        uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-file: test/conda-env.yaml
+          environment-name: quad-from-patches
+          cache-env: true
+          cache-downloads: true
+
+      - run: |
+          micromamba activate quad-from-patches
+          pip install -U pytest
+          pytest test/
+  
