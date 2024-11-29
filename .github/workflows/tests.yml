@@ -1,0 +1,27 @@
+name: PyTests
+
+on:
+  pull_request:
+    paths:
+      - test/**
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Copy contents of repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.8'
+          cache: 'pip' # caching pip dependencies
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Pytests
+        run: |
+          pytest test/
