@@ -2,7 +2,7 @@ import unittest
 import numpy as np
 import sys
 import os
-# Add the current directory to sys.path
+# Add current directory to sys.path
 sys.path.append(os.path.abspath('.'))
 
 from main import (find_brightest_patch_centers, cal_quad_area, draw_quad,
