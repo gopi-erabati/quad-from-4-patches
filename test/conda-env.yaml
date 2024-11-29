@@ -1,5 +1,8 @@
 name: quad-from-patches
+channels: 
+  - conda-forge 
 dependencies:
+  - micromamba
   - pip:
     - numpy==1.19.5
     - opencv-python==4.9.0.80
