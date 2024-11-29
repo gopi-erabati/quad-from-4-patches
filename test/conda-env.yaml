@@ -3,6 +3,8 @@ channels:
   - conda-forge 
 dependencies:
   - micromamba
+  - python=3.8.13=ha86cf86_0_cpython
+  - setuptools=65.5.1=pyhd8ed1ab_0
   - pip:
     - numpy==1.19.5
     - opencv-python==4.9.0.80
